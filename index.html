@@ -10,6 +10,40 @@
   <body>
     <div class="container">
       <section>
+        <h1>Control Flow</h1>
+
+        <section x-data="{ age: 18 }">
+          <h2>If</h2>
+          <p>Age: <span x-text="age"></span></p>
+          <template x-if="age < 20">
+            <p>You are a child.</p>
+          </template>
+          <template x-if="age >= 20">
+            <p>You are an adult.</p>
+          </template>
+        </section>
+
+        <section x-data="{}">
+          <h2>For</h2>
+          <ul>
+            <template x-for="i in 5">
+              <li x-text="i"></li>
+            </template>
+          </ul>
+        </section>
+
+        <section x-data="{ open: false }">
+          <h2>Teleport</h2>
+          <button @click="open = ! open">Toggle Modal</button>
+          <template x-teleport="body">
+            <div x-show="open">
+              <p>This is a modal.</p>
+            </div>
+          </template>
+        </section>
+      </section>
+
+      <section>
         <h1>Form Input Binding</h1>
 
         <section x-data="{ text: '' }">
