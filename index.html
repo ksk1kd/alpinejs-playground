@@ -9,7 +9,52 @@
   </head>
   <body>
     <div class="container">
-      content
+      <section>
+        <h1>Form Input Binding</h1>
+
+        <section x-data="{ text: '' }">
+          <h2>Text</h2>
+          <input type="text" x-model="text" />
+          <p x-text="text"></p>
+        </section>
+
+        <section x-data="{ checked: false }">
+          <h2>Checkbox</h2>
+          <input type="checkbox" x-model="checked" />
+          <p x-text="checked"></p>
+        </section>
+
+        <section x-data="{ options: ['option1', 'option2', 'option3'], selected: '' }">
+          <h2>Radio</h2>
+          <template x-for="option in options" :key="option">
+            <label>
+              <input type="radio" x-model="selected" :value="option" />
+              <span x-text="option"></span>
+            </label>
+          </template>
+        </section>
+
+        <section x-data="{ options: ['option1', 'option2', 'option3'], selected: '' }">
+          <h2>Select</h2>
+          <select x-model="selected">
+            <template x-for="option in options" :key="option">
+              <option :value="option" x-text="option"></option>
+            </template>
+          </select>
+          <p x-text="selected"></p>
+        </section>
+
+        <section x-data="{ options: ['option1', 'option2', 'option3'], selected: [] }">
+          <h2>Multiple Checkbox</h2>
+          <template x-for="option in options" :key="option">
+            <label>
+              <input type="checkbox" x-model="selected" :value="option" />
+              <span x-text="option"></span>
+            </label>
+          </template>
+          <p x-text="selected"></p>
+        </section>
+      </section>
     </div>
   </body>
 </html>
