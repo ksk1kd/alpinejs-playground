@@ -9,6 +9,11 @@
   </head>
   <body>
     <div class="container">
+      <section x-data="{}" @notify="alert('Hello World!')">
+        <h1>Dispatch</h1>
+        <button @click="$dispatch('notify')">Notify</button>
+      </section>
+
       <section x-data="{ count: 0, double: 0 }" x-init="$watch('count', (value, oldValue) => double = value * 2)">
         <h1>Watch</h1>
         <button @click="count++">Increment</button>
