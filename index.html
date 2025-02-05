@@ -9,6 +9,11 @@
   </head>
   <body>
     <div class="container">
+      <section x-data="{ count: 0 }" x-effect="console.log(count)">
+        <h1>Effect</h1>
+        <button @click="count++">Increment</button>
+      </section>
+
       <section>
         <h1>Control Flow</h1>
 
