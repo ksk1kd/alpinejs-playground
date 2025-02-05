@@ -9,6 +9,12 @@
   </head>
   <body>
     <div class="container">
+      <section x-data="{}">
+        <h1>Ref</h1>
+        <button @click="$refs.text.remove()">Remove Text</button>
+        <p x-ref="text">If you click above button, this text will be removed.</p>
+      </section>
+
       <section x-data="{ count: 0 }" x-effect="console.log(count)">
         <h1>Effect</h1>
         <button @click="count++">Increment</button>
