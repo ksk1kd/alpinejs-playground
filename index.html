@@ -9,6 +9,27 @@
   </head>
   <body>
     <div class="container">
+      <section>
+        <h1>Store</h1>
+
+        <script>
+          document.addEventListener('alpine:init', () => {
+            Alpine.store('darkMode', {
+              init() {
+                this.on = window.matchMedia('(prefers-color-scheme: dark)').matches
+              },
+              on: false,
+              toggle() {
+                this.on = !this.on
+              }
+            })
+          })
+        </script>
+
+        <button x-data @click="$store.darkMode.toggle()">Toggle Dark Mode</button>
+        <p x-data>Dark Mode: <span x-text="$store.darkMode.on"></span></p>
+      </section>
+
       <section x-data="{}" @notify="alert('Hello World!')">
         <h1>Dispatch</h1>
         <button @click="$dispatch('notify')">Notify</button>
