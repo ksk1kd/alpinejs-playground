@@ -9,6 +9,13 @@
   </head>
   <body>
     <div class="container">
+      <section x-data="{ count: 0, double: 0 }" x-init="$watch('count', (value, oldValue) => double = value * 2)">
+        <h1>Watch</h1>
+        <button @click="count++">Increment</button>
+        <p>Counet: <span x-text="count"></span></p>
+        <p>Double: <span x-text="double"></span></p>
+      </section>
+
       <section x-data="{}">
         <h1>Ref</h1>
         <button @click="$refs.text.remove()">Remove Text</button>
